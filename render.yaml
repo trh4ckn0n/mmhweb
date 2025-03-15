@@ -1,0 +1,16 @@
+services:
+  - type: web
+    name: mmhweb
+    env: python
+    buildCommand: "pip install -r requirements.txt"
+    startCommand: "python app.py"
+    plan: free  # Or use another plan depending on your needs
+    branches:
+      - main  # This specifies the branch to deploy from
+    envVars:
+      - key: FLASK_APP
+        value: app.py
+      - key: FLASK_ENV
+        value: production
+    regions:
+      - us  # Choose the region nearest to you
