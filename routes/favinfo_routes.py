@@ -4,7 +4,7 @@ import requests
 
 favinfo_route = Blueprint('favinfo_route', __name__)
 
-@fav_route.route('/api/favinfo', methods=['GET'])
+@favinfo_route.route('/api/favinfo', methods=['GET'])
 def get_ips_from_favhash():
     fav_hash = request.args.get('hash')
     if not fav_hash:
