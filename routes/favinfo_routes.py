@@ -2,7 +2,7 @@ from flask import Blueprint, request, jsonify
 from utils import CRIMINALIP_KEY
 import requests
 
-fav_route = Blueprint('fav_route', __name__)
+favinfo_route = Blueprint('favinfo_route', __name__)
 
 @fav_route.route('/api/favinfo', methods=['GET'])
 def get_ips_from_favhash():
