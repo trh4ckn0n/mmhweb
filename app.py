@@ -14,6 +14,10 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db.init_app(app)
 init_db(app)
 
+# Création des tables si elles n'existent pas déjà
+with app.app_context():
+    db.create_all()
+
 # CORS
 CORS(app)
 
