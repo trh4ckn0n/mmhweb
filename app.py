@@ -3,11 +3,14 @@ from flask_cors import CORS
 from models import db, init_db
 from routes.favicon_routes import fav_route
 from routes.ipinfo_routes import ipinfo_route
+import os
 
 app = Flask(__name__)
 
+
+basedir = os.path.abspath(os.path.dirname(__file__))
+app.config['SQLALCHEMY_DATABASE_URI'] = f"sqlite:///{os.path.join(basedir, 'database/favhash.db')}"
 # Configuration SQLite
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///database/favhash.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 # Initialisation de la DB
