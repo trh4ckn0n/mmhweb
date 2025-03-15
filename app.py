@@ -3,7 +3,7 @@ from flask_cors import CORS
 from models import db, init_db
 from routes.favicon_routes import fav_route
 from routes.ipinfo_routes import ipinfo_route
-from routes.favinfo_routes import fav_route  # Ajouter l'import de favinfo_route
+from routes.favinfo_routes import favinfo_route  # Ajouter l'import de favinfo_route
 
 import os
 
@@ -26,10 +26,9 @@ CORS(app)
 
 # Enregistrement des routes
 app.register_blueprint(fav_route)
+app.register_blueprint(favinfo_route)
 app.register_blueprint(ipinfo_route)
 
-# Ajout du blueprint favinfo_route
-app.register_blueprint(fav_route)  # Assure-toi d'ajouter celui-ci
 
 if __name__ == '__main__':
     app.run(debug=False, host="0.0.0.0", port=5000)
