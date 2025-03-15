@@ -4,5 +4,4 @@ flask_cors
 requests
 python-dotenv
 bs4
-json
 mmh3
